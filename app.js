@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 const ejs = require("ejs");
-const mongoose = require('mongoose');
-//require('dotenv').config({path: __dirname + '/.env'});
+//const mongoose = require('mongoose');
+require('dotenv').config({path: __dirname + '/.env'});
 //const BAMBI_CONNECT = process.env.BAMBI_CONNECT
 //app.set('view engine', 'ejs');
 //app.use(express.static("public"));
