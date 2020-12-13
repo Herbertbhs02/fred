@@ -10,13 +10,29 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-
-
 app.get('/', (req, res)=>{
     res.render('Home')
 })
 
-   
+app.get('/Church', (req, res)=>{
+    res.render('Church')
+})
+
+app.get('/Messages', (req, res)=>{
+    res.render('Messages')
+})
+
+app.get('/Newsletter', (req, res)=>{
+    res.render('Newsletter')
+})
+
+app.get('/MissionsOutreach', (req, res)=>{
+    res.render('MissionsOutreach')
+})
+
+app.get('/ContactUs', (req, res)=>{
+    res.render('ContactUs')
+})
 
 
 const port = process.env.PORT ||   3000
