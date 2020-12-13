@@ -12,10 +12,9 @@ app.use(express.static("public"));
 
 
 
-app.get('/', (req, res) =>{ 
-    
-   res.send("It's  now working")
-    });
+app.get('/', (req, res)=>{
+    res.render('Home')
+})
 
    
 
