@@ -10,6 +10,20 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+//mongoose.connect:Connecting to cloud mongoDB atlas 
+mongoose.connect(BAMBI_CONNECT,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+   (error)=>console.log(`Connection requested`))
+
+   const churchSchema = {
+            firstname: String,
+            lastname: String,
+            email:String,
+            shortmessage:String
+  };
+  const Church = mongoose.model("Church", churchSchema);
+
+
 app.get('/', (req, res)=>{
     res.render('Home')
 })
