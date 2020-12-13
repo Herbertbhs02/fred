@@ -23,6 +23,17 @@ mongoose.connect(BAMBI_CONNECT,
   };
   const Church = mongoose.model("Church", churchSchema);
 
+    //Fetching data from mongoDB and render it in message page
+    app.get("/Messages", function(req, res){
+
+        Church.find({}, function(err, churches){
+          res.render("Messages", {
+            messages: churches
+            
+            });
+        });
+      });
+    
 
 app.get('/', (req, res)=>{
     res.render('Home')
