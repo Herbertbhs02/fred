@@ -8,7 +8,7 @@ const BAMBI_CONNECT = process.env.BAMBI_CONNECT
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+//app.use(express.static("public"));
 
 //mongoose.connect:Connecting to cloud mongoDB atlas 
 mongoose.connect(BAMBI_CONNECT,
@@ -58,6 +58,36 @@ app.get('/MissionsOutreach', (req, res)=>{
 app.get('/ContactUs', (req, res)=>{
     res.render('ContactUs')
 })
+
+//Data from Form entry and save into mongobd atlas
+app.post("/ContactUs", function(req, res){
+    const church = new Church({
+      firstname: req.body.firstName,
+      lastname: req.body.lastName,
+      email: req.body.email,
+      shortmessage:req.body.shortMessage
+ 
+    });
+
+    church.save(function(err){
+      if (!err){
+          res.redirect("/");
+      }
+    });
+  });
+
+
+//Delete a post
+app.post('/delete', (req,res)=>{
+    const postDel = req.body.removePost;
+    Church.findByIdAndRemove(postDel, (err)=>{
+      if(!err){
+        console.log('Successfully deleted the post')
+      }
+      res.redirect('/Messages')
+    })
+  
+  })
 
 
 const port = process.env.PORT ||   3000
