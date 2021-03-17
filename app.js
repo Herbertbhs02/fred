@@ -42,7 +42,7 @@ app.get('/', (req, res)=>{
 app.get('/Church', (req, res)=>{
     res.render('Church')
 })
-
+//get users messages
 app.get('/Messages', (req, res)=>{
     res.render('Messages')
 })
