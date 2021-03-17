@@ -90,5 +90,5 @@ app.post('/delete', (req,res)=>{
   })
 
 
-const port = process.env.PORT ||   3000
+const port = process.env.PORT || 8080
 app.listen(port, () => console.log(`church app listening at http://localhost:${port}`))
