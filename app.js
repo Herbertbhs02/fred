@@ -8,7 +8,7 @@ const BAMBI_CONNECT = process.env.BAMBI_CONNECT
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(express.static("public"));
+
 
 //mongoose.connect:Connecting to cloud mongoDB atlas 
 mongoose.connect(BAMBI_CONNECT,
@@ -34,7 +34,7 @@ mongoose.connect(BAMBI_CONNECT,
         });
       });
     
-
+//Home page route
 app.get('/', (req, res)=>{
     res.render('Home')
 })
