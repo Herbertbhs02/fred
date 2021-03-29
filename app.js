@@ -59,7 +59,7 @@ app.get('/ContactUs', (req, res)=>{
     res.render('ContactUs')
 })
 
-//Data from Form entry and save into mongobd atlas
+//Data from Form entry and save into mongoDB Atlas
 app.post("/ContactUs", function(req, res){
     const church = new Church({
       firstname: req.body.firstName,
